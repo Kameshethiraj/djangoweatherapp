@@ -1,6 +1,19 @@
-{% extends 'base.html' %}
-<!--jhjh-->
-
-{% block content %}
-<h1>Welcome to weather app</h1>
-{% endblock %}
+{% extends 'base.html' %} {% block content %}
+<h2>Welcome to weather app</h2>
+<p>I done it with the help of codemy.com from udemy platform</p>
+<p>It just a simple API driver weather application using AIRNOW API</p>
+<p>I hope i will do better nexttime by my own</p>
+<br />
+{% if api %} {% if api == 'Error...' %}
+<p>There was an error, Please try again...</p>
+{% else %}
+<div class="card {{ category_color }}" style="width: 18rem">
+  <div class="card-body">
+    <h5 class="card-title">{{ api.0.Category.Name }}</h5>
+    <p class="card-text">
+      {{ api.0.ReportingArea }} Air Quality : {{ api.0.AQI }}
+    </p>
+    <p>{{ category_description }}</p>
+  </div>
+</div>
+{% endif %} {% endif %} {% endblock %}
